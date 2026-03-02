@@ -1,0 +1,125 @@
+{
+  "workouts": [
+    {
+      "id": "hybrid-home-dynamic-12",
+      "name": "Hybrid Home Dynamic 12",
+      "title": "Hybrid Home Dynamic 12 — 60s Work / 45s Rest",
+      "subtitle": "Random 12 stations • 2 laps • 2:00 break between laps • Balanced across movement categories.",
+      "equipmentNote": "Equipment pool: 2×5kg DB, 2×10kg DB, pull-up bar, light band, heavy band, bodyweight.",
+      "timing": {
+        "workSeconds": 60,
+        "restSeconds": 45,
+        "breakBetweenLapsSeconds": 120,
+        "totalLaps": 2
+      },
+      "generation": {
+        "stationCount": 12,
+        "requiredCategories": ["push", "pull", "hinge", "squat", "rotate", "lunge", "carry"]
+      },
+      "exerciseLibrary": [
+        {
+          "category": "pull",
+          "exercises": [
+            { "name": "Pull-Ups / Chin-Ups", "desc": "Full hang; ribs down; controlled reps", "equipment": ["pull-up-bar"] },
+            { "name": "Negative Pull-Ups", "desc": "Step/jump to top; 3–5s lowering", "equipment": ["pull-up-bar"] },
+            { "name": "Banded Assisted Pull-Ups", "desc": "Band on bar; knee/foot in band; full ROM", "equipment": ["band", "pull-up-bar"] },
+            { "name": "DB Bent-Over Row", "desc": "Flat back; pull to pockets; pause 1s", "equipment": ["2x10kg-db"] },
+            { "name": "DB Underhand Row", "desc": "Supinated grip; elbows close; squeeze lats", "equipment": ["2x10kg-db"] },
+            { "name": "Single-Arm DB Row", "desc": "Brace hard; elbow to hip; slow return", "equipment": ["1x10kg-db"] },
+            { "name": "DB Renegade Row (knees if needed)", "desc": "Hips square; slow pull; no twisting", "equipment": ["2x5kg-db"] },
+            { "name": "Band Row", "desc": "Squeeze shoulder blades; control return", "equipment": ["heavy-band"] },
+            { "name": "Band Lat Pulldown (anchor high)", "desc": "Drive elbows down; pause at bottom", "equipment": ["band"] },
+            { "name": "Band Face Pull", "desc": "Pull to eyebrows; elbows high; 1s squeeze", "equipment": ["light-band"] },
+            { "name": "Band Pull-Aparts", "desc": "Straight arms; squeeze mid-back", "equipment": ["light-band"] },
+            { "name": "DB Rear Delt Fly", "desc": "Soft elbows; move from shoulder; no swing", "equipment": ["2x5kg-db"] },
+            { "name": "DB Hammer Curl", "desc": "Neutral grip; elbows pinned; slow eccentric", "equipment": ["2x10kg-db", "2x5kg-db"] },
+            { "name": "DB Supinated Curl", "desc": "Full supination; avoid swinging", "equipment": ["2x10kg-db", "2x5kg-db"] },
+            { "name": "DB Concentration Curl", "desc": "Elbow on thigh; squeeze top; slow down", "equipment": ["1x10kg-db"] },
+            { "name": "Band Curl", "desc": "Constant tension; full ROM; controlled", "equipment": ["band"] }
+          ]
+        },
+        {
+          "category": "push",
+          "exercises": [
+            { "name": "DB Strict Press", "desc": "Ribs down; glutes tight; smooth press", "equipment": ["2x10kg-db", "2x5kg-db"] },
+            { "name": "DB Push Press", "desc": "Dip-drive; punch to lockout; no over-arch", "equipment": ["2x10kg-db", "2x5kg-db"] },
+            { "name": "DB Arnold Press", "desc": "Rotate smoothly; avoid shrugging", "equipment": ["2x5kg-db", "2x10kg-db"] },
+            { "name": "DB Floor Press", "desc": "Elbows ~45°; pause on floor; press fast", "equipment": ["2x10kg-db"] },
+            { "name": "DB Squeeze Press (floor)", "desc": "Press DBs together; slow down", "equipment": ["2x10kg-db"] },
+            { "name": "Push-Ups", "desc": "Full-body tension; chest to floor; lock out", "equipment": ["bodyweight"] },
+            { "name": "Close-Grip Push-Ups", "desc": "Elbows close; triceps bias; quality reps", "equipment": ["bodyweight"] },
+            { "name": "Pike Push-Ups", "desc": "Hips high; head between hands; control", "equipment": ["bodyweight"] },
+            { "name": "DB Lateral Raise", "desc": "Raise to mid-chest; slow lower; no swing", "equipment": ["2x5kg-db"] },
+            { "name": "DB Front Raise", "desc": "Stop at shoulder height; control down", "equipment": ["2x5kg-db"] },
+            { "name": "Band Triceps Pushdown", "desc": "Lock elbows; full extension; slow return", "equipment": ["band"] },
+            { "name": "Band Overhead Triceps Extension", "desc": "Long-head stretch; elbows narrow", "equipment": ["band"] },
+            { "name": "DB Overhead Triceps Extension", "desc": "Slow eccentric; elbows in", "equipment": ["1x10kg-db", "2x5kg-db"] },
+            { "name": "DB Triceps Kickback", "desc": "Hinge; elbows high; squeeze hard", "equipment": ["2x5kg-db"] }
+          ]
+        },
+        {
+          "category": "squat",
+          "exercises": [
+            { "name": "DB Goblet Squat", "desc": "Elbows inside knees; full-foot pressure", "equipment": ["1x10kg-db"] },
+            { "name": "DB Front Squat", "desc": "DBs at shoulders; torso tall; brace", "equipment": ["2x10kg-db", "2x5kg-db"] },
+            { "name": "DB Thruster", "desc": "Squat → drive overhead; steady breathing", "equipment": ["2x5kg-db", "2x10kg-db"] },
+            { "name": "DB Reverse Lunge", "desc": "10 total = 5/leg; step back softly", "equipment": ["2x5kg-db", "2x10kg-db"] },
+            { "name": "DB Split Squat", "desc": "Control depth; knee tracks toes; upright torso", "equipment": ["2x5kg-db"] },
+            { "name": "DB Lateral Lunge", "desc": "Sit back into hip; push floor away", "equipment": ["2x5kg-db"] },
+            { "name": "DB Step-Up (chair/box)", "desc": "Drive through full foot; control down", "equipment": ["2x5kg-db", "2x10kg-db"] },
+            { "name": "Band Squat (band under feet)", "desc": "Knees out; constant tension; full depth", "equipment": ["band"] },
+            { "name": "Band Lateral Walk", "desc": "Short steps; hips level; knees out", "equipment": ["light-band"] },
+            { "name": "Tempo Air Squat", "desc": "3s down; 1s pause; stand tall", "equipment": ["bodyweight"] },
+            { "name": "Squat Pulses", "desc": "Stay mid-range; constant tension", "equipment": ["bodyweight"] }
+          ]
+        },
+        {
+          "category": "hinge",
+          "exercises": [
+            { "name": "DB Romanian Deadlift", "desc": "Hips back; lats on; feel hamstrings", "equipment": ["2x10kg-db"] },
+            { "name": "DB Suitcase Deadlift", "desc": "Brace; stand tall; avoid rounding", "equipment": ["2x10kg-db"] },
+            { "name": "DB Staggered-Stance RDL", "desc": "70/30 stance; hinge; slow down", "equipment": ["2x10kg-db"] },
+            { "name": "DB Single-Leg RDL", "desc": "Square hips; reach long; control", "equipment": ["1x10kg-db", "2x5kg-db"] },
+            { "name": "Band Good Morning", "desc": "Band at hips; hinge; squeeze glutes", "equipment": ["heavy-band"] },
+            { "name": "Band Pull-Through (anchor low)", "desc": "Hinge back; snap hips through", "equipment": ["band"] },
+            { "name": "Glute Bridge", "desc": "Ribs down; full hip extension; pause", "equipment": ["bodyweight"] },
+            { "name": "DB Glute Bridge", "desc": "Pause at top; knees steady", "equipment": ["1x10kg-db"] },
+            { "name": "DB Hang Clean (two DB)", "desc": "Jump-shrug; fast elbows; soft catch", "equipment": ["2x10kg-db", "2x5kg-db"] },
+            { "name": "Single-Arm DB Snatch", "desc": "Hip drive; DB close; punch overhead", "equipment": ["1x10kg-db", "1x5kg-db"] },
+            { "name": "DB Hip Hinge Swing (DB between legs)", "desc": "Hinge not squat; snap hips; float DB", "equipment": ["1x10kg-db"] }
+          ]
+        },
+        {
+          "category": "rotate",
+          "exercises": [
+            { "name": "Band Pallof Press", "desc": "Anti-rotation press straight out and back in", "equipment": ["light-band"] },
+            { "name": "Band Wood Chop", "desc": "Diagonal pull with controlled trunk rotation", "equipment": ["heavy-band"] },
+            { "name": "Russian Twist", "desc": "Rotate ribcage over stable hips; smooth cadence", "equipment": ["bodyweight"] },
+            { "name": "DB Halo", "desc": "Circle around head while keeping torso steady", "equipment": ["1x5kg-db"] },
+            { "name": "Dead Bug Cross Reach", "desc": "Cross-body core control; lower back pinned", "equipment": ["bodyweight"] }
+          ]
+        },
+        {
+          "category": "lunge",
+          "exercises": [
+            { "name": "DB Reverse Lunge", "desc": "Step back; front knee tracks toes; drive up strong", "equipment": ["2x10kg-db"] },
+            { "name": "DB Forward Lunge", "desc": "Controlled descent and stable front knee", "equipment": ["2x5kg-db"] },
+            { "name": "Bodyweight Alternating Lunge", "desc": "Switch legs each rep; keep torso upright", "equipment": ["bodyweight"] },
+            { "name": "DB Split Squat (R)", "desc": "Stay tall and drive through front foot", "equipment": ["2x5kg-db"] },
+            { "name": "DB Split Squat (L)", "desc": "Match right-side depth and rhythm", "equipment": ["2x5kg-db"] }
+          ]
+        },
+        {
+          "category": "carry",
+          "exercises": [
+            { "name": "Farmer Carry March", "desc": "March in place with loaded grip and braced core", "equipment": ["2x10kg-db"] },
+            { "name": "Suitcase Carry March", "desc": "One-sided load; resist side bend and switch halfway", "equipment": ["1x10kg-db"] },
+            { "name": "Front Rack Carry March", "desc": "Dumbbells racked at shoulders; controlled breathing", "equipment": ["2x5kg-db"] },
+            { "name": "Overhead Carry March", "desc": "Arm locked overhead; ribs down; switch sides", "equipment": ["1x5kg-db"] },
+            { "name": "Heavy Band Resisted Walkout Hold", "desc": "Step out against band tension and hold posture", "equipment": ["heavy-band"] }
+          ]
+        }
+      ]
+    }
+  ]
+}
