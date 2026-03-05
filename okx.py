@@ -17,13 +17,34 @@ try:
 except ImportError:
     pass  # Skip if dotenv not installed
 
-BASE_URL = "https://www.okx.com"
+# Demo/Testnet vs Live
+USE_DEMO = os.getenv("OKX_DEMO", "true").lower() == "true"
+
+if USE_DEMO:
+    BASE_URL = "https://www.okx.com"
+    # Demo trading endpoints
+    DEMO_URL = "https://www.okx.com"
+else:
+    BASE_URL = "https://www.okx.com"
+    DEMO_URL = BASE_URL
 
 class OKXClient:
-    def __init__(self):
+    def __init__(self, demo: bool = None):
+        # Override with parameter if provided
+        if demo is not None:
+            self.use_demo = demo
+        else:
+            self.use_demo = USE_DEMO
+        
         self.api_key = os.getenv("OKX_API_KEY", "")
         self.secret_key = os.getenv("OKX_SECRET_KEY", "")
         self.passphrase = os.getenv("OKX_PASSPHRASE", "")
+        
+        # Demo accounts have different API
+        if self.use_demo:
+            print("🔶 Using DEMO/TESTNET mode")
+        else:
+            print("🔴 Using LIVE trading mode")
     
     def sign(self, message: str, timestamp: str) -> str:
         mac = hmac.new(
@@ -47,7 +68,18 @@ class OKXClient:
             "OK-ACCESS-PASSPHRASE": self.passphrase
         }
         
-        url = BASE_URL + endpoint
+        # Demo mode uses different URL
+        if self.use_demo:
+            # For demo, we'll use the demo-sso endpoint
+            url = f"https://demo-sso.okx.com{endpoint}" if self.use_demo else BASE_URL + endpoint
+        else:
+            url = BASE_URL + endpoint
+        
+        # Try demo endpoint first if enabled
+        if self.use_demo:
+            # Demo trading API
+            url = f"https://www.okx.com{endpoint}"
+            headers["x-simulated-trading"] = "1"  # Demo trading header
         
         try:
             if method == "GET":
@@ -85,33 +117,51 @@ class OKXClient:
 
 if __name__ == "__main__":
     import sys
-    client = OKXClient()
     
-    if len(sys.argv) < 2:
+    # Check for demo flag
+    demo = True
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    flags = [a for a in sys.argv[1:] if a.startswith('--')]
+    
+    if '--live' in flags:
+        demo = False
+    
+    client = OKXClient(demo=demo)
+    
+    if len(args) < 1:
         print("Usage: python okx.py <command> [args]")
+        print("")
         print("Commands: balance, buy, sell, ticker")
+        print("")
+        print("Examples:")
+        print("  python okx.py balance              # Check balance (demo)")
+        print("  python okx.py buy BTC-USDT 0.01   # Buy BTC (demo)")
+        print("  python okx.py sell ETH-USDT 0.1   # Sell ETH (demo)")
+        print("  python okx.py ticker BTC-USDT     # Get BTC price")
+        print("")
+        print("  python okx.py --live buy BTC-USDT 0.01  # LIVE trading")
         sys.exit(1)
     
-    cmd = sys.argv[1].lower()
+    cmd = args[0].lower()
     
     if cmd == "balance":
         result = client.get_balance()
         print(result)
     
     elif cmd == "buy":
-        symbol = sys.argv[2] if len(sys.argv) > 2 else "BTC-USDT"
-        amount = float(sys.argv[3]) if len(sys.argv) > 3 else 0.01
+        symbol = args[1] if len(args) > 1 else "BTC-USDT"
+        amount = float(args[2]) if len(args) > 2 else 0.01
         result = client.buy(symbol, amount)
         print(result)
     
     elif cmd == "sell":
-        symbol = sys.argv[2] if len(sys.argv) > 2 else "BTC-USDT"
-        amount = float(sys.argv[3]) if len(sys.argv) > 3 else 0.01
+        symbol = args[1] if len(args) > 1 else "BTC-USDT"
+        amount = float(args[2]) if len(args) > 2 else 0.01
         result = client.sell(symbol, amount)
         print(result)
     
     elif cmd == "ticker":
-        symbol = sys.argv[2] if len(sys.argv) > 2 else "BTC-USDT"
+        symbol = args[1] if len(args) > 1 else "BTC-USDT"
         result = client.get_ticker(symbol)
         print(result)
     
